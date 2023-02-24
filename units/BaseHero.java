@@ -42,11 +42,7 @@ public abstract class BaseHero implements Interface {
         return speed;
     }
     
-    // public int getpointXY() {
-    //     return x, y ;
-    // }
-    
-    public int getHP(){
+        public int getHP(){
         return health;
     }
 
