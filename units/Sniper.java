@@ -29,6 +29,7 @@ public class Sniper extends Shooter {
                     distanceToEnemy = Point2D.Distance(team2.get(i));
                     if (distanceToEnemy < temp) {
                         nearIndex = i;
+                        temp = distanceToEnemy;
                     }
                     }                            
                 giveDamage(team2.get(nearIndex));                     
@@ -47,6 +48,7 @@ public class Sniper extends Shooter {
                     distanceToEnemy = Point2D.Distance(team1.get(i));
                     if (distanceToEnemy < temp) {
                         nearIndex = i;
+                        temp = distanceToEnemy;
                     }
                     }                            
                 giveDamage(team1.get(nearIndex));                     
