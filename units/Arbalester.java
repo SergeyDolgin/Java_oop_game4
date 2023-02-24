@@ -9,12 +9,6 @@ public class Arbalester extends Shooter {
         super("Arbalester", side, "Mikle", 10, 6, 4, 3, 2, 3, 16, x, y);
     }
 
-    /**
-     * Переопределить getInfo так, чтобы он возвращал строки:"Я крестьянин", "Я
-     * снайпер"
-     */
-
-
     @Override
     public String getInfo() {
         return "Я Арбалетчик";
