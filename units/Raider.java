@@ -9,6 +9,6 @@ public class Raider extends Warrior {
 
     /**Переопределить getInfo так, чтобы он возвращал строки:"Я крестьянин", "Я снайпер"  */
     @Override
-    public String getInfo() { return "Я Разбойник";}
+    public String getInfo() { return "Я Разбойник: ";}
 
 }

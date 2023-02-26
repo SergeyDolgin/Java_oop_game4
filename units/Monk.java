@@ -9,6 +9,6 @@ public class Monk extends Priest {
 
     /**Переопределить getInfo так, чтобы он возвращал строки:"Я крестьянин", "Я снайпер"  */
     @Override
-    public String getInfo() { return "Я Монах ";}
+    public String getInfo() { return "Я Монах: ";}
 
 }

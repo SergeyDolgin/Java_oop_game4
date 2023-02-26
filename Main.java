@@ -23,7 +23,7 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("---------");
-        System.out.println("LIGHT сторона:");
+        // System.out.println("LIGHT сторона:");
         int teamCount1 = 10;
         Random rand = new Random();
         
@@ -48,10 +48,10 @@ public class Main {
                     // teams.add(new BaseHero());
                     break;
             }
-            System.out.println(team1.get(i).getInfo());
+            // System.out.println(team1.get(i).getInfo());
         }
 
-        System.out.println("DARK сторона:");
+        // System.out.println("DARK сторона:");
         ArrayList<BaseHero> team2 = new ArrayList<>();
         int teamCount2 = 10;
         for (int i = 0; i < teamCount2; i++) {
@@ -73,7 +73,7 @@ public class Main {
                     // teams.add(new BaseHero());
                     break;
             }
-            System.out.println(team2.get(i).getInfo());
+            // System.out.println(team2.get(i).getInfo());
         }
 
         ArrayList<BaseHero> listResult = new ArrayList<>();
@@ -90,9 +90,12 @@ public class Main {
                 return o2.getSpeed() - o1.getSpeed();
             }
         });
+
+
         // listResult.SortBySpeed;
         // System.out.println("Список героев по убыванию СКОРОСТИ");
         // listResult.forEach(n -> System.out.print(n.getInfo()+ n.getSide() +" скорость " + n.getSpeed() + " здоровье " + n.getHP() + ", \n"));
+
 
         System.out.println("До атаки");
         System.out.println("LIGHT");
@@ -101,15 +104,16 @@ public class Main {
         team2.forEach(n -> System.out.print(n.getInfo()+ n.getSide() +" скорость " + n.getSpeed() + " здоровье " + n.getHP() + ", \n"));
 
         /** Стрельба реализована через метод step только у арбалетчиков и снайперов */
-        
-        listResult.forEach(n -> n.step(team1, team2));
-        listResult.forEach(n -> n.step(team2, team1));
+        for (BaseHero baseHero : listResult) {
+            if (team1.contains(baseHero)) baseHero.step(team1, team2);
+            else baseHero.step(team2, team1);
+            
+        }
         System.out.println("После атаки арбалетчиков и снайперов");
         System.out.println("LIGHT");
         team1.forEach(n -> System.out.print(n.getInfo()+ n.getSide() +" скорость " + n.getSpeed() + " здоровье " + n.getHP() + ", \n"));
         System.out.println("DARK");
         team2.forEach(n -> System.out.print(n.getInfo()+ n.getSide() +" скорость " + n.getSpeed() + " здоровье " + n.getHP() + ", \n"));
-
-    
+   
     }
 }

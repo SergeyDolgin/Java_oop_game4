@@ -1,5 +1,7 @@
 package units;
 
+import java.util.ArrayList;
+
 public class Shooter extends BaseHero{
     int shoot;
     
@@ -13,21 +15,20 @@ public class Shooter extends BaseHero{
             return String.format("%s Ammunition: %d Gun: %s Markmanship: %d", 
             super.getInfo());       
         }
+
+        @Override
+        public void step(ArrayList<BaseHero> team1, ArrayList<BaseHero> team2) {
+            if (shoot == 0) return;
+            BaseHero victim = team2.get(findNearest(team2));
+            float damage = (victim.protection - attack) > 0 ? minDamage : (victim.protection - attack) < 0 ? maxDamage: (minDamage+maxDamage)/2;
+            victim.getDamage(damage);
+            for (BaseHero baseHero : team1) {
+                if (baseHero.getInfo().toString().split(":")[0].equals("Крестьянин")) {
+                    baseHero.state = "Busy";
+                    return;
+                }
+            }
+            shoot--;
+        }
 }       
 
-
-
-// public abstract class Archer extends Attacking_class {
-
-//     protected int shots;
-
-//     public Archer(String name, int defense, int minDamage, int maxDamage, int hp, int speed, int attack, int shots, Point pointXY) {
-//         super(name, defense, minDamage, maxDamage, hp, speed, attack, pointXY);
-//         this.shots = shots;
-//     }
-
-//     @Override
-//     public void step(ArrayList<BaseHero> team1, ArrayList<BaseHero> team2){
-        
-//     }
-// }
